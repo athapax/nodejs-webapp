@@ -15,10 +15,10 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 992382722426.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 992382722426.dkr.ecr.us-east-1.amazonaws.com
       - IMAGE_REPO_NAME=992382722426.dkr.ecr.us-east-1.amazonaws.com/nodejs-july24
       - IMAGE_TAG=latest
-      - aws eks --region us-east-1 updte-kubeconfig --name k8s-devops-advanced2
+      - aws eks --region us-east-1 update-kubeconfig --name k8s-devops-advanced2
   build:
     commands:
       - echo Build started on `date`
